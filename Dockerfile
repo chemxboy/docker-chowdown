@@ -1,7 +1,7 @@
 FROM tylerobara/alpine-base
 
 COPY chowdown.sh /usr/local/bin/chowdown.sh
-COPY gh-pages.zip /tmp/gh-pages.zip
+COPY /github/workspace/gh-pages.zip /tmp/gh-pages.zip
 RUN chmod +x /usr/local/bin/chowdown.sh
 
 RUN unzip /tmp/gh-pages.zip \
