@@ -1,9 +1,10 @@
 FROM tylerobara/alpine-base
 
 COPY chowdown.sh /usr/local/bin/chowdown.sh
+COPY gh-pages.zip /tmp/gh-pages.zip
 RUN chmod +x /usr/local/bin/chowdown.sh
 
-RUN unzip gh-pages.zip \
+RUN unzip /tmp/gh-pages.zip \
     && rm gh-pages.zip \
     && mv chowdown-gh-pages /opt/app \
     && apk add --update --no-cache ruby ruby-json ruby-bigdecimal ruby-webrick ruby-etc libffi \
