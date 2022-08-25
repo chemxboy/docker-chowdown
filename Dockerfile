@@ -3,8 +3,7 @@ FROM tylerobara/alpine-base
 COPY chowdown.sh /usr/local/bin/chowdown.sh
 RUN chmod +x /usr/local/bin/chowdown.sh
 
-RUN wget https://github.com/tylerobara/chowdown/archive/gh-pages.zip \
-    && unzip gh-pages.zip \
+RUN unzip gh-pages.zip \
     && rm gh-pages.zip \
     && mv chowdown-gh-pages /opt/app \
     && apk add --update --no-cache ruby ruby-json ruby-bigdecimal ruby-webrick ruby-etc libffi \
