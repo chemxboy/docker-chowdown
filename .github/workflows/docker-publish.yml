@@ -14,18 +14,18 @@ jobs:
     runs-on: chowdown-runner
 
     steps:
+    - uses: actions/checkout@v3
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
     - name: wget
       uses: wei/wget@v1
       with:
-        args: -O $GITHUB_WORKSPACE/gh-pages.zip https://github.com/tylerobara/chowdown/archive/gh-pages.zip    
-    - uses: actions/checkout@v3
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2     
-    # - name: Publish to Registry
-    #   uses: elgohr/Publish-Docker-Github-Action@v4
-    #   with:
-    #     name: tylerobara/chowdown
-    #     username: ${{ secrets.DOCKER_USERNAME }}
-    #     password: ${{ secrets.DOCKER_PASSWORD }}
-    #     tags: "latest"
-    #     platforms: linux/amd64,linux/arm64
+        args: -O $GITHUB_WORKSPACE/gh-pages.zip https://github.com/tylerobara/chowdown/archive/gh-pages.zip          
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@v4
+      with:
+        name: tylerobara/chowdown
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        tags: "latest"
+        platforms: linux/amd64,linux/arm64
