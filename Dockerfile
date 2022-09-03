@@ -1,4 +1,4 @@
-FROM tylerobara/alpine-base
+FROM tylerobara/alpine-base:latest
 
 COPY chowdown.sh /usr/local/bin/chowdown.sh
 COPY gh-pages.zip /tmp/gh-pages.zip
