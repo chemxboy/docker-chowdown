@@ -9,6 +9,7 @@ RUN unzip /tmp/gh-pages.zip \
     && mv chowdown-gh-pages /opt/app \
     && apk add --update --no-cache ruby ruby-json ruby-bigdecimal ruby-webrick ruby-etc libffi libstdc++\
     && apk add --virtual build-dependencies build-base ruby-dev libffi-dev \
+    && apk add xzy \
     && apk -U upgrade \
     && gem install jekyll -N \
     && gem cleanup \
