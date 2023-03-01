@@ -7,6 +7,7 @@ on:
     branches: [ "master" ]
   schedule:
     - cron: '0 2 1 * *'
+  workflow_dispatch:
 jobs:
 
   build:
@@ -22,7 +23,7 @@ jobs:
       with:
         args: -O $GITHUB_WORKSPACE/gh-pages.zip https://github.com/tylerobara/chowdown/archive/gh-pages.zip          
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@v4
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: tylerobara/chowdown
         username: ${{ secrets.DOCKER_USERNAME }}
