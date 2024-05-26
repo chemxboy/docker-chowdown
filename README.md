@@ -11,7 +11,7 @@ lightweight alpine container for chowdown.io
 
 ### Docker run command
 ```bash
-docker run --name chowdown -d -p 4000:4000/tcp -v "/opt/appdata/chowdown:/config" --restart=unless-stopped tylerobara/chowdown:latest
+docker run --name chowdown -d -p 4000:4000/tcp -v "/opt/appdata/chowdown:/config" --restart=unless-stopped chemxboy/chowdown:latest
 ```
 
 ### Docker compose example
@@ -20,14 +20,14 @@ version: "3"
 services:
   chowdown:
     container_name: chowdown
-    image: tylerobara/chowdown:latest
+    image: chemxboy/chowdown:latest
     volumes:
       - /opt/appdata/chowdown:/config # Align permissions to desired user set in environment
     restart: unless-stopped
     environment:
-     - PUID=65534 # set to PUID of config directory owner
-     - PGID=65534 # set to PGID of config directory owner
+     - PUID=1000 # set to PUID of config directory owner
+     - PGID=1000 # set to PGID of config directory owner
     ports:
-      - "4000:4000"
+      - 4000:4000/tcp
 ```
 

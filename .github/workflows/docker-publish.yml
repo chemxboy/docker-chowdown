@@ -21,11 +21,11 @@ jobs:
     - name: wget
       uses: wei/wget@v1
       with:
-        args: -O $GITHUB_WORKSPACE/gh-pages.zip https://github.com/tylerobara/chowdown/archive/gh-pages.zip          
+        args: -O $GITHUB_WORKSPACE/gh-pages.zip https://github.com/chemxboy/chowdown/archive/gh-pages.zip          
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v5
       with:
-        name: tylerobara/chowdown
+        name: chemxboy/chowdown
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         tags: "latest"
